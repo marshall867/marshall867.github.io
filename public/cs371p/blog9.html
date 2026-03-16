@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Week 9</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    /* Page background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Centered paper container */
+    .page {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 32px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    /* Headings */
+    .page h1 {
+      font-size: 2rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+
+    .page h3 {
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Paragraphs */
+    .page p {
+      margin: 1rem 0;
+    }
+
+    /* Links */
+    .page a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .page a:hover {
+      text-decoration: underline;
+    }
+
+    /* Images */
+    .page img {
+      display: block;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    /* Emphasis */
+    .page strong {
+      font-weight: 600;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .page h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <h1>CS 371p Spring 2026: Marshall Brandt</h1>
+
+    <img src="https://marshall867.github.io/headshot.png" width="200" height="200" alt="Marshall Brandt headshot" />
+
+    <h3>WEEK #9</h3>
+
+    <p>
+      This week we learned about initializer lists in C++. I used to be confused about the various ways to
+      initialize variables, but learning about initializer list constructors cleared some things up. The fact
+      that there are so many ways to define constructors for a single object is interesting to me. Other languages
+      I'm familiar with usually just have one way to instantiate an object defined by a class. In C++, it seems
+      normal to have four or five different types of constructors!
+    </p>
+
+    <p>
+      By this point, we've re-derived the need for many of the items in the standard library. Learning about
+      the mechanics of <code>std::array</code>, <code>std::vector</code>, and <code>std::allocator</code> has
+      deepened my understand of what these seemingly simple helpers do.
+    </p>
+
+    <p>
+      By implementing our own Allocator for project #3, I was exposed to the various considerations when allocating memory. We used
+      a simple strategy of "first-fit" and integer sentinels, but I'm sure there are many ways in which this type of data structure
+      could be optimized for certain workloads and data types.
+    </p>
+
+    <p>
+      I was a little surprised at how verbose C++ classes end up being, even when they expose a simple API. While creating
+      my Allocator, having to implemement both a read/write iterator and a read-only iterator required either repeating code
+      or using complex casting statements. The result is that the important logic of the file gets hidden among lines and lines
+      of boilerplate.
+    </p>
+
+    <p>
+      I tend to prefer vertically compact code, such that most of the visual real estate is logically impactful code.
+      That way, "simple" components are short files, and "complex" classes are 200-500 lines. Any longer, and I find
+      that I constantly have to jump back and forth between vertical sections of the code.
+    </p>
+
+    <p>
+      I'd like to learn more about how to structure C++ classes in a way that minimizes verbosity. I've gained a lot of respect
+      for the power and compatibility of C++, but I'd love how to keep any necessary complexity as hidden as possible.
+    </p>
+
+    <hr/>
+
+    
+    <h3>Pick of the week</h3>
+
+    <p>
+      <a href="https://helix-editor.com"><strong>Helix Editor</strong></a>
+    </p>
+
+    <p>
+      I've been trying out different code editors this semester. I used to rely on VSCode for everything, but I wanted to see
+      if I could switch to a terminal-based editor. Working from the terminal is daunting at first, but it had too many benefits for me
+      to ignore any longer: 
+    </p>
+
+    <ul>
+      <li>Mouse-free navigation</li>
+      <li>Machine-agnostic workflow</li>
+      <li><i>Looks cooler</i></li>
+    </ul>
+
+    <p>
+      Until now, I've been using neovim as my primary editor. But, for the past week, I've been editing with Helix.
+    </p>
+
+    <p><b>Why Helix?</b></p>
+
+    <ul>
+      <li>Native support for multiple cursors</li>
+      <li>Better tree-sitter motions</li>
+      <li>Selection -> Verb instead of Verb -> Selection</li>
+    </ul>
+
+    <p>
+      Running <code>hx --tutor</code> is a nice way to learn the most common keyboard shortcuts and commands if you're interested in trying it.
+    </p>
+  </main>
+</body>
+</html>

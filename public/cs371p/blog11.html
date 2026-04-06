@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Week 11</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    /* Page background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Centered paper container */
+    .page {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 32px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    /* Headings */
+    .page h1 {
+      font-size: 2rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+
+    .page h3 {
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Paragraphs */
+    .page p {
+      margin: 1rem 0;
+    }
+
+    /* Links */
+    .page a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .page a:hover {
+      text-decoration: underline;
+    }
+
+    /* Images */
+    .page img {
+      display: block;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    /* Emphasis */
+    .page strong {
+      font-weight: 600;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .page h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <h1>CS 371p Spring 2026: Marshall Brandt</h1>
+
+    <img src="https://marshall867.github.io/headshot.png" width="200" height="200" alt="Marshall Brandt headshot" />
+
+    <h3>WEEK #11</h3>
+
+    <p>
+      This week we continued the discussion about getters and setters and how they relate to Object-Oriented design patterns.
+      In our second reading about getters and setters, the author dileneated between getters/setters in business logic and in
+      User Interfaces. The principle is about keeping business logic free from them so that implementation details are encapsulated.
+    </p>
+
+    <p>
+      The article mentioned using a <b>Builder</b> pattern for connecting business logic and application state to user interfaces.
+      The benefit of using a Builder is that the same application state can be used to build user-interfaces to multiple output
+      environments without being tied to specific implementation details.
+    </p>
+
+    <p>
+      The article's sample code was too verbose for me to endorse as a viable approach, but the idea of having Builders that generate
+      user-facing outputs from a single source-of-truth is something that I resonate with. The main issue with the article's approach (in my
+      view) is their usage of Java. To demonstrate, I'll show a side-by-side comparison of the sample Java code with an equivalent approach
+      using JavaScript and template literals.
+    </p>
+    
+    <p>
+      While they both accomplish the same result, the Java version is much more prone to developer error, as the strings are difficult to read,
+      and the hierarchy of the html is obfuscated. The beauty of javascript template literals is that they provide the ergonomics of a templating
+      engine without a DSL, any logic within the interpolations is just javascript.
+    </p>
+
+
+    <h4>Original (Java)</h4>
+
+<img src="https://marshall867.github.io/cs371p/gifs/java.gif" width="100%"  alt="Java snippet" />
+
+<h4>Simpler (JavaScript)</h4>
+
+<img src="https://marshall867.github.io/cs371p/gifs/js.gif" width="100%"  alt="JS snippet" />
+
+    <p>In today's world, there are more devices, services, and environments than there ever have been, and each
+    has a set of constraints that define the proper 'files' to build.</p>
+
+    <p>By setting up the codebase to separate business logic from UI builders, we can deploy to multiple target environments with ease.</p>
+
+    <p>For example, it's common to build websites with public information (like documentation) with two versions: one for the web using HTML/CSS/JS for a human experience, and one for LLMs using markdown.
+    You can try this on <a href="https://bun.com/docs/runtime/color">Bun docs</a>. By appending a .md to any documentation page, you get a markdown file that contains the same inforamtion, but formatted for LLMs.
+    It makes sense to have 'buidlers' for each output format, without having to worry about the implementations of the internal state of the source-of-truth during doc generation.</p>
+
+
+    <hr/>
+
+    
+    <h3>Pick of the week</h3>
+
+    <p>
+      <a href="https://github.com/charmbracelet/vhs"><strong>vhs</strong></a>
+    </p>
+
+    <p>VHS is a CLI recording program that allows you to define a <code>.tape</code> that includes a deterministic set of events to execute in a CLI session.</p>
+    <p>VHS will run that file and generate an output animation, which can be very helpful for authoring tutorials or recording workflows.</p>
+
+  </main>
+</body>
+</html>

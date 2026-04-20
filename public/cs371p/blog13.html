@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Week 13</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    /* Page background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Centered paper container */
+    .page {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 32px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    /* Headings */
+    .page h1 {
+      font-size: 2rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+
+    .page h3 {
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Paragraphs */
+    .page p {
+      margin: 1rem 0;
+    }
+
+    /* Links */
+    .page a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .page a:hover {
+      text-decoration: underline;
+    }
+
+    /* Images */
+    .page img {
+      display: block;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    /* Emphasis */
+    .page strong {
+      font-weight: 600;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .page h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <h1>CS 371p Spring 2026: Marshall Brandt</h1>
+
+    <img src="https://marshall867.github.io/headshot.png" width="200" height="200" alt="Marshall Brandt headshot" />
+
+    <h3>WEEK #13</h3>
+
+    <p>
+      This week we learned about the role of virtual functions and abstract class hierarchies. Specifically, we learned about pure virtual methods and pure virtual destructors.
+    </p>
+
+    <p>
+      Pure virtual methods allow a class to define methods that need to be implemented by children without providing a default behavior.
+      Methods are defined as "pure virtual" by declaring "virtual void someMethod() = 0;".
+      This makes that class "abstract", which means that you cannot create objects of that class directly.
+      The only way to instantiate these objects is to use a subclass that implements the required methods.
+    </p>
+
+    <p>
+      When the parent class has default implementations for all of its methods, it's common practice to declare a virtual destructor "virtual ~AbstractParent() = 0;".
+      This pure virtual destructor is sufficient for making a class abstract in C++.
+    </p>
+
+    <p>
+      Abstract classes can still hold state and provide methods that can be used by child classes. As we learned in class, when considering "Shape" and "Circle", certain data properties
+      fit well in the parent abstract class, like position x,y. For reading shape parameters from std::cin, it's useful to have "Shape::read(istream)" that "Circle::read(istream)" can call.
+    </p>
+
+    <p>
+      Professor Downing mentioned a story from his work experience where an upstream library author changed the function signature of a specific method, adding a "const" annotation to a method,
+      asserting that the method didn't mutate the state of the instance. This change caused the downstream child class to no longer override the library properly - without causing a compile-time error.
+    </p>
+
+    <p>
+      The solution to this is to use the override keyword, which will cause a compiler error when it doesn't match the function signature of a parent method.
+    </p>
+
+    <p>
+      C++ has many intricacies, and understanding the syntax and language features is important for interacting with real-world codebases.
+      Simpler languages hide the complexity, which makes it easier to get started, but "magic" usually conceals internal design decisions with tradeoffs.
+      C++ makes everything explicit, which requries more effort and reduces readability, but it gives developers full control over their code.
+    </p>
+
+    <hr/>
+
+    
+    <h3>Pick of the week</h3>
+
+    <p>
+      <a href="https://landley.net/toybox/"><strong>toybox</strong></a>
+    </p>
+
+    <p>Toybox is a single executable that includes the most common linux CLI utilities, like ls, cat, mkdir, whoami, chmod, etc.</p>
+    <p>This is especially useful for resource-constrained or simplified systems where you want the simplicity of posix commands you already know, without having to manually implement or import each individual command.</p>
+    <p>I heard about this tool from Operating Systems, and I appreciated the fact that well-known standards for program behaviors can be implemented in many different ways,
+    as long as they fulfil the user-contract (return same output for same input). This is similar to the idea of child classes that implement abstract class methods.
+    </p>
+
+  </main>
+</body>
+</html>
